@@ -278,6 +278,8 @@ func Extract(surl string, url *url.URL) *UrlFeatures {
 	}
 	urlf := &UrlFeatures{GoogleScore: normScore, Length: len(surl), Fullurl: surl, NumLinks: score}
 
+	urlf.Hostname = url.Hostname()
+
 	for _, v := range links {
 		valurl, err := url.Parse(v)
 		if err != nil {
@@ -285,8 +287,7 @@ func Extract(surl string, url *url.URL) *UrlFeatures {
 			continue
 		}
 		if strings.Contains(surl, valurl.Hostname()) {
-			urlf.Hostname = url.Hostname()
-			urlf.IsHttps = url.Scheme == "https"
+			urlf.IsHttps = valurl.Scheme == "https"
 			break
 		}
 	}
