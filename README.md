@@ -8,6 +8,7 @@ todo -
 Whois
 SafeSearch
 Category
+SSL fingerprint
 
 ## build
 go run .
