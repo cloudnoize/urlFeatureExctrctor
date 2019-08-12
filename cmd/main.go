@@ -8,6 +8,7 @@ import (
 
 func main() {
 	addr := ":8989"
-	http.DefaultServeMux.Handle("/", urlfettr.GetUrlExtractorHandler())
+	http.DefaultServeMux.Handle("/", urlfettr.GetTemplateHandler())
+	http.DefaultServeMux.Handle("/json", urlfettr.GetJsonHandler())
 	http.ListenAndServe(addr, nil)
 }
