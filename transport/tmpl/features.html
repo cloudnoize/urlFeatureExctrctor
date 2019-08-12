@@ -1,0 +1,20 @@
+<html>
+<style type="text/css">
+.tab { margin-left: 40px; }
+</style>
+<body> 
+<h3>Features of {{.Fullurl}}</h1>
+<ul>
+    <li>Domain - {{.Hostname}}</li>
+    <li>GoogleScore - {{.GoogleScore}} (number of referrences [{{.NumLinks}}])</li>
+    <li>IsHttps - {{.IsHttps}}</li>
+    <li>Url Length - {{.Length}}</li>
+    <h4>IP Feature</h4>
+    {{range .IPv4}}
+        <li class="tab">IP - {{.Geolocation.IP}}</li>
+        <li class="tab">Country - {{.Geolocation.CountryName}}</li>
+        </br>
+    {{end}}
+</ul>
+</body> 
+</html>
